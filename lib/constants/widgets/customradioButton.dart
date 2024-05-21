@@ -1,6 +1,3 @@
-import 'package:clearning/app/core/resources/color_manager.dart';
-import 'package:clearning/app/core/utils/CustomFunctions.dart';
-import 'package:clearning/app/core/utils/Extenstion.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,6 +7,7 @@ class MyRadioButton extends StatefulWidget {
       required this.selectingIndex,
       required this.title,
       required this.onclick});
+
   final List<Widget> title;
   final int selectingIndex;
   final Function(int i) onclick;
@@ -33,31 +31,32 @@ class _MyRadioButtonState extends State<MyRadioButton> {
                     GestureDetector(
                       onTap: () {
                         widget.onclick(index);
-                        CustomPrint("Index of $index is click ");
                       },
                       child: CircleAvatar(
                         radius: 10,
-                        backgroundColor: Colors.themeColor,
-                        child: CircleAvatar(
-                          radius: 10,
-                          backgroundColor: Colors.white,
-                        ).toCenter().paddingAll(1),
+                        backgroundColor: Colors.white,
+                        child: Center(
+                          child: CircleAvatar(
+                            radius: 10,
+                            backgroundColor: Colors.white,
+                          ),
+                        ).paddingAll(1),
                       ),
                     )
                   else
                     CircleAvatar(
                       radius: 10,
-                      backgroundColor: ColorManager.themeColor,
+                      backgroundColor: Colors.white,
                       child: CircleAvatar(
                         radius: 8,
                         backgroundColor: Colors.white,
                         child: CircleAvatar(
                           radius: 6,
-                          backgroundColor: Colors.themeColor,
-                        ).toCenter().paddingAll(2),
-                      ).toCenter().paddingAll(1),
+                          backgroundColor: Colors.white,
+                        ).paddingAll(2),
+                      ).paddingAll(1),
                     ),
-                  8.0.spaceWidth(),
+                  SizedBox(width: 8),
                   widget.title[index],
                 ],
               )),
